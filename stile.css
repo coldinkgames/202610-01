@@ -4,6 +4,7 @@
   --accento: #9c5e2f; --accento-su: #7f4a22; --salvia: #6f7040; --su-accento: #fffdf9;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body { margin: 0; background: var(--sfondo); color: var(--corpo); font-family: "Karla", "Segoe UI", sans-serif; font-size: 17px; line-height: 1.6; }
 main { max-width: 640px; margin: 0 auto; padding: 24px 16px 64px; }
 .testa { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 28px; }
