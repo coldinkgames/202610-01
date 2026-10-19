@@ -5,27 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>La Mossa rimandata</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stile.css">
 </head>
 <body>
 <main>
-  <p class="etichetta">Cold Ink · Caso #202610-01</p>
+  <div class="testa">
+    <img class="logo" src="logo.png" alt="Cold Ink Games">
+    <div class="lingue"><button data-lingua="it">IT</button><button data-lingua="en">EN</button></div>
+  </div>
+  <p class="etichetta"><span data-t="caso"></span> #202610-01</p>
   <h1>La Mossa rimandata</h1>
-  <p class="tenue">Siena, agosto. Un ragazzo della Torre è morto la notte prima del Palio.</p>
+  <p class="tenue" data-t="lancio"></p>
 
   <div class="scheda">
-    <h2 style="margin-top:0">Il rapporto al committente</h2>
-    <p>Sono le cinque domande a cui dovete rispondere. Le trovate anche stampate nella scatola.</p>
-    <a class="bottone secondario" href="domande/">Le domande del caso</a>
+    <h2 data-t="portali"></h2>
+    <ul class="portali">
+      <li><a href="sidi/">SIDI</a><span data-t="sidi"></span></li>
+      <li><a href="secret-locker/">Secret Locker</a><span data-t="locker"></span></li>
+    </ul>
   </div>
 
   <div class="scheda">
-    <h2 style="margin-top:0">La soluzione</h2>
-    <p>Apritela solo quando avete scritto tutte le risposte, con i documenti su cui le basate.</p>
-    <a class="bottone" href="soluzione/">Vai alla soluzione</a>
+    <h2 data-t="rapporto"></h2>
+    <p data-t="rapporto_testo"></p>
+    <a class="bottone secondario" href="domande/" data-t="domande"></a>
   </div>
 
-  <footer>Materiale di gioco Cold Ink. Persone e fatti del caso sono inventati.</footer>
+  <div class="scheda">
+    <h2 data-t="soluzione"></h2>
+    <p data-t="soluzione_testo"></p>
+    <a class="bottone" href="soluzione/" data-t="vai"></a>
+  </div>
+
+  <footer data-t="piede"></footer>
 </main>
+<script>
+const T = {
+  it: { caso: "Caso", lancio: "Siena, agosto. Un ragazzo della Torre è morto la notte prima del Palio.",
+        portali: "Portali dell'indagine", sidi: "Le registrazioni della polizia. Le credenziali sono nei documenti.",
+        locker: "L'archivio privato sul telefono di Matteo.",
+        rapporto: "Il rapporto al committente", rapporto_testo: "Sono le cinque domande a cui dovete rispondere. Le trovate anche stampate nella scatola.",
+        domande: "Le domande del caso", soluzione: "La soluzione",
+        soluzione_testo: "Apritela solo quando avete scritto tutte le risposte, con i documenti su cui le basate.", vai: "Vai alla soluzione",
+        piede: "Materiale di gioco Cold Ink. Persone e fatti del caso sono inventati." },
+  en: { caso: "Case", lancio: "Siena, August. A boy from the Torre contrada died the night before the Palio.",
+        portali: "Investigation portals", sidi: "The police recordings. The login details are in the documents.",
+        locker: "The private archive on Matteo's phone.",
+        rapporto: "The report to the client", rapporto_testo: "These are the five questions you have to answer. You will also find them printed in the box.",
+        domande: "The case questions", soluzione: "The solution",
+        soluzione_testo: "Open it only once you have written down every answer, with the documents it rests on.", vai: "Go to the solution",
+        piede: "Cold Ink game material. The people and events of this case are fictional." }
+};
+</script>
+<script src="lingue.js"></script>
 </body>
 </html>

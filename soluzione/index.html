@@ -5,36 +5,70 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>La soluzione</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../stile.css">
 </head>
 <body>
 <main>
+  <div class="testa">
+    <a href="../"><img class="logo" src="../logo.png" alt="Cold Ink Games"></a>
+    <div class="lingue"><button data-lingua="it">IT</button><button data-lingua="en">EN</button></div>
+  </div>
   <p class="indietro"><a href="../">← La Mossa rimandata</a></p>
-  <p class="etichetta">Caso #202610-01 · La soluzione</p>
+  <p class="etichetta" data-t="etichetta"></p>
 
   <div id="conferma">
-    <h1>Avete finito?</h1>
-    <p>Prima di andare avanti, controllate di aver scritto una risposta per ognuna delle cinque domande, con i documenti su cui la basate. Dopo, il caso non si può più giocare da capo.</p>
-    <p><button class="bottone" id="vai">Sì, abbiamo scritto le risposte</button></p>
-    <p><a href="../domande/">Rivedi le domande</a></p>
+    <h1 data-t="finito"></h1>
+    <p data-t="controllate"></p>
+    <p><button class="bottone" id="vai" data-t="si"></button></p>
+    <p><a href="../domande/" data-t="rivedi"></a></p>
   </div>
 
   <div id="soluzione" hidden>
-    <h1>La soluzione</h1>
-    <p>Il detective Andrea Moretti vi racconta che cosa è successo davvero, domanda per domanda. Ascoltatelo con il vostro rapporto davanti.</p>
+    <h1 data-t="titolo"></h1>
+    <p data-t="intro"></p>
+    <div id="voci"></div>
     <div class="scheda">
-      <p class="tenue" style="margin:0">L'audio della soluzione è in preparazione.</p>
+      <h2 data-t="racconto"></h2>
+      <p data-t="racconto_testo"></p>
+      <div id="racconto"></div>
     </div>
   </div>
 
-  <footer>Materiale di gioco Cold Ink. Persone e fatti del caso sono inventati.</footer>
+  <footer data-t="piede"></footer>
 </main>
+<script src="../domande.js"></script>
 <script>
+const T = {
+  it: { etichetta: "Caso #202610-01 · La soluzione", finito: "Avete finito?",
+        controllate: "Prima di andare avanti, controllate di aver scritto una risposta per ognuna delle cinque domande, con i documenti su cui la basate. Dopo, il caso non si può più giocare da capo.",
+        si: "Sì, abbiamo scritto le risposte", rivedi: "Rivedi le domande", titolo: "La soluzione",
+        intro: "Il detective Andrea Moretti risponde a ogni domanda. Ascoltatele una alla volta, con il vostro rapporto davanti.",
+        racconto: "Il racconto completo",
+        racconto_testo: "Come sono andate davvero le cose, dal 1987 alla notte del rinvio: che cosa ha concluso la polizia, e quello che nessuna carta dice.",
+        prep: "Audio in preparazione.", piede: "Materiale di gioco Cold Ink. Persone e fatti del caso sono inventati.", ...DOMANDE.it },
+  en: { etichetta: "Case #202610-01 · The solution", finito: "Are you done?",
+        controllate: "Before you go on, check that you have written an answer to each of the five questions, with the documents it rests on. After this, the case cannot be played again from scratch.",
+        si: "Yes, we have written our answers", rivedi: "Review the questions", titolo: "The solution",
+        intro: "Detective Andrea Moretti answers each question. Listen to them one at a time, with your report in front of you.",
+        racconto: "The full story",
+        racconto_testo: "What really happened, from 1987 to the night of the postponement: what the police concluded, and what no document tells you.",
+        prep: "Audio coming soon.", piede: "Cold Ink game material. The people and events of this case are fictional.", ...DOMANDE.en }
+};
+// Un audio per domanda e uno per il racconto finale, per lingua (es. "audio/it/d1.mp3"). Finché manca, la voce dice «in preparazione».
+const AUDIO = { d1: null, d2: null, d3: null, d4: null, d5: null, racconto: null };
+const lettore = k => AUDIO[k]
+  ? `<audio controls preload="none" src="${AUDIO[k]}"></audio>`
+  : `<p class="in-preparazione" data-t="prep"></p>`;
+document.getElementById("voci").innerHTML = ["d1", "d2", "d3", "d4", "d5"].map((k, i) =>
+  `<div class="soluzione-voce"><p><b>${i + 1}.</b> <span data-t="${k}"></span></p>${lettore(k)}</div>`).join("");
+document.getElementById("racconto").innerHTML = lettore("racconto");
 document.getElementById("vai").onclick = () => {
   document.getElementById("conferma").hidden = true;
   document.getElementById("soluzione").hidden = false;
   window.scrollTo(0, 0);
 };
 </script>
+<script src="../lingue.js"></script>
 </body>
 </html>

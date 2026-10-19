@@ -5,23 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Le domande del caso</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../stile.css">
 </head>
 <body>
 <main>
+  <div class="testa">
+    <a href="../"><img class="logo" src="../logo.png" alt="Cold Ink Games"></a>
+    <div class="lingue"><button data-lingua="it">IT</button><button data-lingua="en">EN</button></div>
+  </div>
   <p class="indietro"><a href="../">← La Mossa rimandata</a></p>
-  <p class="etichetta">Rapporto al committente · Pratica n. 2026/031</p>
-  <h1>Le domande del caso</h1>
-  <p class="tenue">Per ogni risposta segnate i documenti su cui vi basate.</p>
+  <p class="etichetta" data-t="etichetta"></p>
+  <h1 data-t="titolo"></h1>
+  <p class="tenue" data-t="nota"></p>
   <ol class="domande">
-    <li>Quando è avvenuto l'omicidio di Matteo, come, e per mano di chi?</li>
-    <li>Che cosa portava con sé Matteo, e a chi era destinato?</li>
-    <li>Che cosa ne è stato del materiale che Matteo doveva consegnare?</li>
-    <li>Chi era con Matteo quella notte, e che parte ha avuto?</li>
-    <li>Chi ha organizzato tutto, e perché?</li>
+    <li data-t="d1"></li><li data-t="d2"></li><li data-t="d3"></li><li data-t="d4"></li><li data-t="d5"></li>
   </ol>
-  <p><a class="bottone" href="../soluzione/">Vai alla soluzione</a></p>
-  <footer>Materiale di gioco Cold Ink. Persone e fatti del caso sono inventati.</footer>
+  <p><a class="bottone" href="../soluzione/" data-t="vai"></a></p>
+  <footer data-t="piede"></footer>
 </main>
+<script src="../domande.js"></script>
+<script>
+const T = {
+  it: { etichetta: "Rapporto al committente · Pratica n. 2026/031", titolo: "Le domande del caso",
+        nota: "Per ogni risposta segnate i documenti su cui vi basate.", vai: "Vai alla soluzione",
+        piede: "Materiale di gioco Cold Ink. Persone e fatti del caso sono inventati.", ...DOMANDE.it },
+  en: { etichetta: "Report to the client · File no. 2026/031", titolo: "The case questions",
+        nota: "For each answer, note the documents it rests on.", vai: "Go to the solution",
+        piede: "Cold Ink game material. The people and events of this case are fictional.", ...DOMANDE.en }
+};
+</script>
+<script src="../lingue.js"></script>
 </body>
 </html>

@@ -1,19 +1,38 @@
-:root { --sfondo: #f4f1ea; --carta: #fbf9f4; --testo: #1d1d1b; --tenue: #6b675f; --linea: #d9d3c7; --accento: #8c2f1b; --accento-testo: #fff; }
-@media (prefers-color-scheme: dark) { :root { --sfondo: #141412; --carta: #1d1c19; --testo: #ecebe6; --tenue: #9c988f; --linea: #34322d; --accento: #c4553a; } }
+/* Pagine del caso: colori e font del sistema Cold Ink di Claude Design (Cinzel, Karla, terra e salvia), con lo sfondo terra chiaro. */
+:root {
+  --sfondo: #f0dcc4; --carta: #fbf6ee; --testo: #35302b; --corpo: #5c5148; --tenue: #8a7d70; --linea: #e0cdb4;
+  --accento: #9c5e2f; --accento-su: #7f4a22; --salvia: #6f7040; --su-accento: #fffdf9;
+}
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--sfondo); color: var(--testo); font-family: Georgia, "Times New Roman", serif; line-height: 1.6; }
-main { max-width: 620px; margin: 0 auto; padding: 56px 16px 72px; }
-.etichetta { font-family: system-ui, sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--tenue); margin: 0 0 8px; }
-h1 { font-size: 30px; font-weight: normal; margin: 0 0 6px; }
-h2 { font-size: 20px; font-weight: normal; margin: 40px 0 12px; }
+body { margin: 0; background: var(--sfondo); color: var(--corpo); font-family: "Karla", "Segoe UI", sans-serif; font-size: 17px; line-height: 1.6; }
+main { max-width: 640px; margin: 0 auto; padding: 24px 16px 64px; }
+.testa { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 28px; }
+.logo { width: 190px; height: auto; display: block; }
+.etichetta { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--salvia); font-weight: 600; margin: 0 0 6px; }
+h1, h2 { font-family: "Cinzel", "Trajan Pro", serif; color: var(--testo); font-weight: 600; }
+h1 { font-size: 34px; line-height: 1.15; margin: 0 0 8px; }
+h2 { font-size: 20px; margin: 0 0 12px; }
 p { margin: 0 0 14px; }
 .tenue { color: var(--tenue); }
 a { color: var(--accento); }
-.scheda { background: var(--carta); border: 1px solid var(--linea); border-radius: 6px; padding: 20px; margin: 24px 0; }
-.bottone { display: inline-block; font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; text-decoration: none; padding: 12px 22px; border-radius: 6px; border: 0; cursor: pointer; background: var(--accento); color: var(--accento-testo); }
-.bottone.secondario { background: none; color: var(--accento); border: 1px solid var(--accento); }
+.scheda { background: var(--carta); border: 1px solid var(--linea); border-radius: 10px; padding: 22px; margin: 22px 0; box-shadow: 0 1px 2px rgba(53, 48, 43, .08); }
+.bottone { display: inline-block; font-family: inherit; font-size: 16px; font-weight: 700; text-decoration: none; padding: 12px 22px; border-radius: 6px; border: 0; cursor: pointer; background: var(--accento); color: var(--su-accento); }
+.bottone:hover { background: var(--accento-su); }
+.bottone.secondario { background: none; color: var(--accento); border: 1.5px solid var(--accento); }
+.lingue { display: flex; gap: 4px; }
+.lingue button { font-family: inherit; background: none; border: 1px solid var(--linea); color: var(--tenue); border-radius: 4px; padding: 3px 8px; font-size: 12px; cursor: pointer; }
+.lingue button.attiva { color: var(--testo); border-color: var(--accento); }
+.portali { list-style: none; padding: 0; margin: 0; }
+.portali li { border-top: 1px solid var(--linea); padding: 12px 0; }
+.portali li:first-child { border-top: 0; padding-top: 0; }
+.portali a { font-weight: 700; text-decoration: none; }
+.portali span { display: block; font-size: 15px; color: var(--tenue); }
 ol.domande { padding-left: 22px; }
-ol.domande li { margin: 0 0 18px; padding-left: 4px; }
-ol.domande li span { display: block; font-size: 14px; color: var(--tenue); }
-.indietro { font-family: system-ui, sans-serif; font-size: 14px; }
-footer { margin-top: 56px; font-family: system-ui, sans-serif; font-size: 12px; color: var(--tenue); }
+ol.domande li { margin: 0 0 16px; padding-left: 4px; color: var(--testo); }
+.indietro { font-size: 14px; margin: 0; }
+.soluzione-voce { border-top: 1px solid var(--linea); padding: 16px 0; }
+.soluzione-voce p { margin: 0 0 8px; color: var(--testo); }
+.soluzione-voce audio { width: 100%; }
+.in-preparazione { font-size: 14px; color: var(--tenue); }
+footer { margin-top: 48px; font-size: 12px; color: var(--tenue); }
+@media (max-width: 420px) { .logo { width: 150px; } h1 { font-size: 28px; } }
