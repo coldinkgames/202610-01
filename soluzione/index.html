@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>La soluzione</title>
+<link rel="stylesheet" href="../stile.css">
+</head>
+<body>
+<main>
+  <p class="indietro"><a href="../">← La Mossa rimandata</a></p>
+  <p class="etichetta">Caso #202610-01 · La soluzione</p>
+
+  <div id="conferma">
+    <h1>Avete finito?</h1>
+    <p>Prima di andare avanti, controllate di aver scritto una risposta per ognuna delle cinque domande, con i documenti su cui la basate. Dopo, il caso non si può più giocare da capo.</p>
+    <p><button class="bottone" id="vai">Sì, abbiamo scritto le risposte</button></p>
+    <p><a href="../domande/">Rivedi le domande</a></p>
+  </div>
+
+  <div id="soluzione" hidden>
+    <h1>La soluzione</h1>
+    <p>Il detective Andrea Moretti vi racconta che cosa è successo davvero, domanda per domanda. Ascoltatelo con il vostro rapporto davanti.</p>
+    <div class="scheda">
+      <p class="tenue" style="margin:0">L'audio della soluzione è in preparazione.</p>
+    </div>
+  </div>
+
+  <footer>Materiale di gioco Cold Ink. Persone e fatti del caso sono inventati.</footer>
+</main>
+<script>
+document.getElementById("vai").onclick = () => {
+  document.getElementById("conferma").hidden = true;
+  document.getElementById("soluzione").hidden = false;
+  window.scrollTo(0, 0);
+};
+</script>
+</body>
+</html>
